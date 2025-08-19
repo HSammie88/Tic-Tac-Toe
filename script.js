@@ -1,5 +1,7 @@
 class Player{
-
+    constructor(symbol){
+        this.symbol = symbol
+    }
 }
 class Board{
 
