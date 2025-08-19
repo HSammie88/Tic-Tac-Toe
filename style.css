@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 768px){
+    .game-button{
+        width: 75px;
+        height: 75px;
+        border-radius: 5px;
+        margin: 5px;
+        font-size: 5rem;
+    }
+    .win-text{
+        font-size: 20px;
+    }
+
+}
+@media (min-width: 769px) and (max-width: 1024px){
+    .game-button{
+        width: 120px;
+        height: 120px;
+        border-radius: 15px;
+        margin: 7px;
+        font-size: 7rem;
+    }
+    .win-text{
+        font-size: 25px;
+    }
+
+}
+@media (min-width: 1025px){
+    .game-button{
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        margin: 10px;
+        font-size: 10rem;
+    }
+    .win-text{
+        font-size: 30px;
+    }
+}
+body{
+    background: radial-gradient(ellipse at bottom right, orange, rgb(121, 197, 223));
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-container{
+    position: relative;
+    background-color: rgba(240, 248, 255, .5);
+    backdrop-filter: blur(19.8px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reload-button{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(3, 160, 3, 0.562);
+    border-radius: 100px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.buttons-container{
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.game-button{
+    background-color: rgb(163, 160, 160);
+    cursor: pointer;
+    transition: background-color .5s;
+    font-family: "Libertinus Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.game-button:hover{
+    background-color: rgb(199, 176, 176);
+}
+.inner-text{
+    user-select: none;
+}
+.win-text{
+    position: absolute;
+    top: 10px;
+    font-family: "Oswald", sans-serif;
+}
