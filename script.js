@@ -19,6 +19,7 @@ class Board{
         ];
         this.cells = document.querySelectorAll("div.buttons-container div")
         this.reloadButton = document.getElementById("reloadButton")
+        this.winText = document.getElementById("winText")
     }
 }
 //Class with logic for game
@@ -45,8 +46,39 @@ class Game{
                     this.playerMoves[playerNumber].push(Number(cell.dataset.index))
                     cell.innerHTML = this.player[playerNumber].symbol
                     this.changeCSS(cell,playerNumber)
+                    this.winCheckout()
                 }
             })
+        })
+    }
+    //Comparing winning combinations with user inputs
+    winCheckout(){
+        for(let i = 0; i < this.playerMoves.length; i++){
+            for(const combination of this.board.winningCombinations){
+                if(combination.every(index => this.playerMoves[i].includes(index))){
+                    this.board.winText.innerHTML = `Победил ${i+1} игрок.`
+                    this.blockAllButtons()
+                    this.winHighlighter(combination, i)
+                }
+            }
+        }
+        if(this.playerMoves[0].length + this.playerMoves[1].length === 9)
+            this.board.winText.innerHTML = "Ничья"
+    }
+    //Blocks all buttons if someone wins
+    blockAllButtons(){
+        this.board.cells.forEach(cell =>{
+            cell.classList.remove('hover-button')
+            cell.style.cursor = 'not-allowed'
+        })
+    }
+    //Highlights winning combination
+    winHighlighter(combination, playerID){
+        combination.forEach(index =>{
+            const cell = this.board.cells[index]
+            cell.style.backgroundColor = 'yellow'
+            cell.style.border = '1px orange solid'
+            cell.style.boxShadow = '0 0 30px orange'
         })
     }
     //Removes hovering effect from cell and changes it color

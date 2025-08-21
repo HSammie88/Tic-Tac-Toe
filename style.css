@@ -84,7 +84,7 @@ body{
 .game-button{
     background-color: rgb(163, 160, 160);
     cursor: pointer;
-    transition: background-color .5s;
+    transition: background-color .5s, box-shadow .5s, border .5s;
     font-family: "Libertinus Sans", sans-serif;
     display: flex;
     align-items: center;
