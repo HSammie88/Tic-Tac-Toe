@@ -50,6 +50,23 @@ class Game{
                 }
             })
         })
+        reloadButton.addEventListener('click', ()=>{
+            this.reloadLogic()
+        })
+    }
+    //Reloads game
+    reloadLogic(){
+        this.board.cells.forEach(cell =>{
+            this.playerMoves[0].length = 0
+            this.playerMoves[1].length = 0
+            cell.style.backgroundColor = 'red'
+            this.board.winText.innerHTML = ''
+            setTimeout(()=>{
+                cell.classList.add("hover-button")
+                cell.innerHTML = ''
+                cell.style.cssText = ``
+            },700)
+        })
     }
     //Comparing winning combinations with user inputs
     winCheckout(){
